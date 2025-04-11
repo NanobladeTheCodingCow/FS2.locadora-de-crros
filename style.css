@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .car-icon {
+    width: 30px;
+    margin-right: 10px;
+  }
+  
+  .logo h1 {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .hero {
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .form-container {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+  }
+  
+  .form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  form input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: calc(50% - 12px);
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  form button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    margin-top: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .about {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+  }
+  
+  .about-icon {
+    width: 60px;
+  }
+  
+  .about h2 {
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .about p {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
