@@ -1,46 +1,236 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlfaDrive</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlfaDrive - Locadora de Carros</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <header>
-    <div class="logo">
-      <img src="carro.png" alt="Carro" class="car-icon">
-      <h1>AlfaDrive</h1>
-    </div>
-    <div class="menu-icon">☰</div>
-  </header>
-
-  <section class="hero">
-    <div class="form-container">
-      <h2>Alugue O Seu Carro Aqui!</h2>
-      <form>
-        <input type="text" placeholder="local de retirada">
-        <div class="row">
-          <input type="date" placeholder="data de retirada">
-          <input type="time" placeholder="hora de retirada">
-          <input type="date" placeholder="data de retirada">
-          <input type="time" placeholder="hora de retirada">
+    <header>
+        <div class="container">
+            <h1>AlfaDrive</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-link">Home</a></li>
+                    <li><a href="#" id="vehicles-link">Veículos</a></li>
+                    <li><a href="#" id="reservation-link">Reservas</a></li>
+                    <li><a href="#" id="login-link">Login</a></li>
+                </ul>
+            </nav>
         </div>
-        <button type="submit">Buscar</button>
-      </form>
-    </div>
-  </section>
+    </header>
 
-  <section class="about">
-    <img src="carro.png" alt="Carro preto" class="about-icon">
-    <h2>AlfaDrive</h2>
-    <p>
-      Na nossa locadora, oferecemos segurança, agilidade e transparência em cada aluguel.
-      Com veículos bem cuidados e um sistema moderno de gestão, garantimos uma experiência
-      prática e confiável para todas as suas necessidades.
-    </p>
-  </section>
+    <main class="container">
+        <!-- Página Inicial -->
+        <section id="home-page" class="page active">
+            <div class="hero">
+                <h2>Alugue seu carro com facilidade</h2>
+                <p>Na nossa locadora, oferecemos segurança, agilidade e transparência em cada aluguel.</p>
+                <a href="#" class="btn" id="reserve-now">Reserve agora</a>
+            </div>
+            
+            <div class="search-box">
+                <h3>Encontre seu carro ideal</h3>
+                <form id="search-form">
+                    <div class="form-group">
+                        <label for="pickup-location">Local de retirada:</label>
+                        <select id="pickup-location" required>
+                            <option value="">Selecione</option>
+                            <option value="goiania">Goiânia</option>
+                            <option value="brasilia">Brasília</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pickup-date">Data de retirada:</label>
+                        <input type="date" id="pickup-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="return-date">Data de devolução:</label>
+                        <input type="date" id="return-date" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Buscar</button>
+                </form>
+            </div>
+        </section>
 
+        <!-- Página de Veículos -->
+        <section id="vehicles-page" class="page">
+            <h2>Nossa Frota</h2>
+            <div class="filters">
+                <select id="vehicle-type">
+                    <option value="">Todos os tipos</option>
+                    <option value="compacto">Compacto</option>
+                    <option value="sedan">Sedan</option>
+                    <option value="suv">SUV</option>
+                    <option value="luxo">Luxo</option>
+                </select>
+                
+                <select id="price-range">
+                    <option value="">Qualquer preço</option>
+                    <option value="100">Até R$100/dia</option>
+                    <option value="200">Até R$200/dia</option>
+                    <option value="300">Até R$300/dia</option>
+                </select>
+            </div>
+            
+            <div class="vehicle-list" id="vehicle-list">
+                <!-- Veículos serão carregados via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Página de Reserva -->
+        <section id="reservation-page" class="page">
+            <h2>Faça sua reserva</h2>
+            <div class="reservation-form">
+                <form id="reservation-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="res-vehicle">Veículo:</label>
+                            <select id="res-vehicle" required>
+                                <option value="">Selecione um veículo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="res-pickup-date">Data de retirada:</label>
+                            <input type="date" id="res-pickup-date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="res-return-date">Data de devolução:</label>
+                            <input type="date" id="res-return-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="res-total">Valor total:</label>
+                            <input type="text" id="res-total" readonly>
+                        </div>
+                    </div>
+                    
+                    <h3>Dados do Cliente</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-name">Nome completo:</label>
+                            <input type="text" id="client-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="client-cpf">CPF:</label>
+                            <input type="text" id="client-cpf" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-email">E-mail:</label>
+                            <input type="email" id="client-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="client-phone">Telefone:</label>
+                            <input type="tel" id="client-phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-address">Endereço:</label>
+                        <input type="text" id="client-address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-cnh">Número da CNH:</label>
+                        <input type="text" id="client-cnh" required>
+                    </div>
+                    
+                    <h3>Forma de Pagamento</h3>
+                    <div class="form-group">
+                        <select id="payment-method" required>
+                            <option value="">Selecione</option>
+                            <option value="credit">Cartão de Crédito</option>
+                            <option value="debit">Cartão de Débito</option>
+                            <option value="pix">PIX</option>
+                        </select>
+                    </div>
+                    
+                    <div id="credit-card-info" class="hidden">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-number">Número do cartão:</label>
+                                <input type="text" id="card-number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-name">Nome no cartão:</label>
+                                <input type="text" id="card-name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Validade:</label>
+                                <input type="text" id="card-expiry" placeholder="MM/AA">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-cvv">CVV:</label>
+                                <input type="text" id="card-cvv">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Confirmar Reserva</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Página de Login -->
+        <section id="login-page" class="page">
+            <div class="login-container">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuário:</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Entrar</button>
+                    <p>Ainda não tem conta? <a href="#" id="register-link">Cadastre-se</a></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Página de Confirmação -->
+        <section id="confirmation-page" class="page">
+            <div class="confirmation-container">
+                <h2>Reserva Confirmada!</h2>
+                <div class="reservation-details" id="reservation-details">
+                    <!-- Detalhes da reserva serão preenchidos via JavaScript -->
+                </div>
+                <button class="btn" id="print-contract">Imprimir Contrato</button>
+                <a href="#" class="btn secondary" id="back-to-home">Voltar à página inicial</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 AlfaDrive - Locadora de Carros. Todos os direitos reservados.</p>
+            <p>Projeto de Fábrica de Software - Engenharia de Software</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
